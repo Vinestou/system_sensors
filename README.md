@@ -12,10 +12,11 @@ It currently logs the following data:
 * Wifi signal strength
 
 # Installation:
-1. Clone this repo
+1. git clone https://github.com/Sennevds/system_sensors.git
 2. cd system_sensors
 3. pip3 install -r requirements.txt
-4. Edit settings.yaml to reflect your setup:
+4. cd src
+5. sudo nano settings.yaml to edit and to reflect your setup:
 
 | Value  | Required | Default | Description | 
 | ------------- | ------------- | ------------- | ------------- |
@@ -27,11 +28,11 @@ It currently logs the following data:
 | client_id | true | \ | client id to connect to the MQTT broker
 | timezone | true | \ | Your local timezone (you can find the list of timezones here: [time zones](https://gist.github.com/heyalexej/8bf688fd67d7199be4a1682b3eec7568))
 | power_integer_state | false | false | Return the power state in text or integer form
-| update_interval | false | 60 | The update interval to send new values to the MQTT broker 
+| update_interval | false | 60 | The update interval in seconds to send new values to the MQTT broker 
 | check_wifi_strength | false | false | Check the wifi strength 
 
-5. python3 system_sensors.py /path/to/settings.yaml
-6. (optional) create service to autostart the script at boot:
+6. python3 system_sensors.py /path/to/settings.yaml (standard path: python3 system_sensors.py ~/system_sensors/src/settings.yaml)
+7. (optional) create service to autostart the script at boot:
     1. sudo nano /etc/systemd/system/system_sensor.service
     2. copy following script:
     ```shell
